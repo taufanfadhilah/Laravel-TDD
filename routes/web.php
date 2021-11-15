@@ -23,4 +23,7 @@ Route::get('about', fn() => 'About Page');
 
 Route::get('/register', [RegisterUserController::class, 'create']);
 Route::post('/register', [RegisterUserController::class, 'store']);
-Route::get('/home', fn() => view('home'));
+
+Route::get('/login', fn() => 'Login')->name('login');
+
+Route::get('/home', fn() => view('home'))->middleware('auth');
