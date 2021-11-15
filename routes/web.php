@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +28,7 @@ Route::post('/register', [RegisterUserController::class, 'store']);
 
 Route::get('/login', [LoginController::class, 'create'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
+
+Route::post('logout', LogoutController::class)->middleware('auth');
 
 Route::get('/home', fn() => view('home'))->middleware('auth');

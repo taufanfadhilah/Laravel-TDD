@@ -7,6 +7,10 @@
     <title>Document</title>
 </head>
 <body>
+    @if (session('message'))
+        {{ session('message') }}
+    @endif
+    
     <form action="/login" method="post">
         @csrf
         <div>
